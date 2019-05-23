@@ -1,0 +1,117 @@
+<html>
+<head>
+
+<title>food meter </title>
+<link rel="stylesheet" href="index.css">
+<script>
+
+  function displayCAL()
+  {
+
+    var f1=document.getElementById("fats").value;
+    var f2=document.getElementById("carbo").value;
+    var f3=document.getElementById("pro").value;
+
+    var cal= 4*(parseFloat(f2)+parseFloat(f3))+ 9*(parseFloat(f1));
+    if(!isNaN(cal))
+    {
+      document.getElementById("calories").innerHTML="CALORIES:"+cal;
+     
+    }
+  }
+</script> 
+
+</head>
+ <body>
+    <img src="image.png" alt="delta" style="float:left;width:42px;height:42px;">
+ <ul>
+   <li><a href="add.html">ITEM table</a></li>
+   <li><a href="contact.html">contact</a></li>
+   
+</ul>
+
+
+
+
+<div class="tab">
+
+<table id="myTable" border="1">
+ <tr>
+  <th>ITEM NAME</th>
+   <th>Water content </th>
+   <th>Fats</th>
+   <th>Carbohydrates</th>
+   <th>Proteins</th>
+   <th>Calories</th>
+ </tr>
+</table>
+</div>
+
+   <div class="food">
+    <div class="form">
+    
+   <form class="details2">
+  
+   ITEM NAME:<input type="text" placeholder="item name" id="iname">
+   <br></br>
+   WATER CONTENT(ml):<input type="text" placeholder="water content" id="wc">
+   <br></br>
+
+   FATS(g):
+   <br></br>
+   <input type="text" placeholder="Fats(g)" id="fats">
+   CARBOHYDRATES(g):<input type="text" placeholder="carbohydrates(g)" id="carbo">
+   <br></br>
+   PROTEINS(g):<input type="text" placeholder="proteins(g)" id="pro">
+   <br></br>
+
+   <button  onclick="displayCAL();">CALORIES </button>
+   <h1 id="calories"></h1>
+  <button onclick="addRow();">Add in table</button>
+
+  <script>
+  
+   function addRow()
+  
+{  
+  var f1=document.getElementById('fats').value;
+    var f2=document.getElementById('carbo').value;
+    var f3=document.getElementById('pro').value;
+    var f4=document.getElementById('wc').value;
+    var f5=document.getElementById('iname').value;
+ 
+  var table = document.getElementById("myTable");
+  var row = table.insertRow(1);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1); 
+  var cell3 = row.insertCell(2); 
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  var cell6 = row.insertCell(5);
+  cell1.innerHTML = f5;
+  cell2.innerHTML = f4;
+  cell3.innerHTML = f1; 
+  cell4.innerHTML = f2; 
+  cell5.innerHTML = f3;
+  cell6.innerHTML = cal;
+
+
+
+
+  }
+
+
+</script>
+<p class="message"><a href="index.html">BACK</a></p>
+  
+  
+  </form>
+
+
+
+</div>
+
+
+</div>
+</body>
+</html>

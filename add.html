@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>additem</title>
+<link rel="Stylesheet" href="style.css">
+<script>
+ function addHtmlTableRow()
+{
+   
+  var table=document.getElementById("table")
+  newRow = table.insertRow(table.length),
+  cell1 = newRow.insertCell(0),
+  cell2 = newRow.insertCell(1), 
+  cell3 = newRow.insertCell(2),
+  cell4 = newRow.insertCell(3),
+  cell5 = newRow.insertCell(4),
+  cell6 = newRow.insertCell(5),
+  ITEM NAME= document.getElementById("iname").value,
+  Water content = document.getElementById("wc").value,
+  Fats= document.getElementById("fats").value,
+  Carbohydrates = document.getElementById("carbo").value,
+  Proteins = document.getElementById("pro").value,
+  cell1.innerHTML = ITEM NAME;
+  cell2.innerHTML =  Water content;
+  cell3.innerHTML = Fats;
+  cell4.innerHTML = Carbohydrates;
+  cell5.innerHTML = Proteins;
+  }
+</script>
+</head>
+<body>
+<div class="tab">
+<button onclick="addHtmlTableRow();">itemtable</button>
+<table id="table" border="1">
+ <tr>
+  <th>ITEM NAME</th>
+   <th>Water content </th>
+   <th>Fats</th>
+   <th>Carbohydrates</th>
+   <th>Proteins</th>
+   <th>Calories</th>
+  <tr>
+</table>
+</div>
+</html>
