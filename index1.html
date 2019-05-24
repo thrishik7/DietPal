@@ -1,6 +1,6 @@
 <html>
 <head>
-
+<meta charset="utf-8" content="width=device-width, initial-scale=1" name="viewport"/>
 <title>food meter </title>
 <link rel="stylesheet" href="index.css">
 <script>
@@ -22,11 +22,12 @@
 </script> 
 
 </head>
- <body>
+ <body onload="init()">
     <img src="image.png" alt="delta" style="float:left;width:42px;height:42px;">
  <ul>
-   <li><a href="add.html">ITEM table</a></li>
-   <li><a href="contact.html">contact</a></li>
+    <li><a href="index.html">Back</a></li>
+   
+    <li><a href="contact.html">Contact</a></li>
    
 </ul>
 
@@ -50,7 +51,7 @@
    <div class="food">
     <div class="form">
     
-   <form class="details2">
+   <div class="details2">
   
    ITEM NAME:<input type="text" placeholder="item name" id="iname">
    <br></br>
@@ -68,8 +69,26 @@
    <button  onclick="displayCAL();">CALORIES </button>
    <h1 id="calories"></h1>
   <button onclick="addRow();">Add in table</button>
-
+<button onclick="delRow();">recent remove</button>
   <script>
+    var foodsArray=[];
+    function init() {
+      if(localStorage.foodsRecord){
+        foodsArray=JSON.parse(localStorage.foodsRecord);
+        for(var i=0; i<foodsArray.length; i++){
+          var f1=foodsArray[i].a1;
+          var f2=foodsArray[i].a2;
+          var f3=foodsArray[i].a3;
+          var f4=foodsArray[i].a4;
+          var f5=foodsArray[i].a5; 
+          var cal=foodsArray[i].cal1;   
+          prepareTableCell(f1,f2,f3,f4,f5,cal); 
+
+  }
+ 
+        }
+      }
+    
   
    function addRow()
   
@@ -79,7 +98,59 @@
     var f3=document.getElementById('pro').value;
     var f4=document.getElementById('wc').value;
     var f5=document.getElementById('iname').value;
- 
+  var cal= 4*(parseFloat(f2)+parseFloat(f3))+ 9*(parseFloat(f1));
+  var fObj={a1:f1,a2:f2,a3:f3,a4:f4,a5:f5,cal1:cal};
+  foodsArray.push(fObj);
+   localStorage.foodsRecord=JSON.stringify(foodsArray);
+    var table = document.getElementById("myTable");
+  var row = table.insertRow(1);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1); 
+  var cell3 = row.insertCell(2); 
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  var cell6 = row.insertCell(5);
+  cell1.innerHTML = f5;
+  cell2.innerHTML = f4;
+  cell3.innerHTML = f1; 
+  cell4.innerHTML = f2; 
+  cell5.innerHTML = f3;
+  cell6.innerHTML = cal;
+
+  var watersum=0;
+for(var i=1; i<table.rows.length; i++)
+{
+  watersum= watersum + parseInt(table.rows[i].cells[1].innerHTML);
+
+}
+if(watersum<2000)
+{
+  alert("Water intaken low, water consumed:"+watersum);
+}
+
+
+var calsum=0;
+for(var i=1; i<table.rows.length; i++)
+{
+  calsum= calsum + parseInt(table.rows[i].cells[5].innerHTML);
+
+}
+if(calsum<2000)
+{
+  alert("calories gained is low, calories consumed(cal):"+calsum);
+}
+if(calsum>3000)
+{
+  alert("calories gained is high, calories consumed(cal):"+calsum);
+}
+if(calsum<3000 && calsum>2000)
+{
+  alert("calories maintained, calories consumed(cal):"+calsum);
+}
+}
+
+  function prepareTableCell(f1,f2,f3,f4,f5,cal)
+  {
   var table = document.getElementById("myTable");
   var row = table.insertRow(1);
   var cell1 = row.insertCell(0);
@@ -96,16 +167,22 @@
   cell6.innerHTML = cal;
 
 
-
-
   }
 
+   function delRow()
+   {
+    var table = document.getElementById("myTable");
+    table.deleteRow(1);
+    foodsArray.splice(1,1);
+    localStorage.foodsRecord=JSON.stringify(foodsArray);
+  
+   }
 
 </script>
 <p class="message"><a href="index.html">BACK</a></p>
   
   
-  </form>
+  </div>
 
 
 

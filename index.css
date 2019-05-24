@@ -36,11 +36,14 @@ table, td {
 .form{
 	|position: relative;
 	z-index: 1;
-	background: #fff;
+	background: rgba(0,0,0,.8);
+	box-sizing:border-box;
+	box-shadow: 0 15px 25px rgba(0,0,0,.5);
 	max-width: 600px;
 	margin: 0 auto 200px;
 	padding: 45px;
 	text-align:center;
+    color: #fff;
 	display: inline-block;
 }
 .form input{
@@ -88,4 +91,13 @@ color: #000;
 	font-size: 12px;
 
 }
-
+.title{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.title h1{
+	color: #fff;
+	font-size:70px;
+}

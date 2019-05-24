@@ -1,21 +1,37 @@
 <html>
 <head>
-
+<meta charset="utf-8" content="width=device-width, initial-scale=1" name="viewport"/>
 <title>food meter </title>
 <link rel="stylesheet" href="index.css">
+<script>
+  function displayBMI()
+  {
 
+    var f1=document.getElementById("hei").value;
+    var f2=document.getElementById("wei").value;
+    
+
+    var bm= (parseFloat(f2))/((parseFloat(f1))*(parseFloat(f1)));
+    if(!isNaN(bm))
+{
+      document.getElementById("bmi").innerHTML="BMI:"+bm;  } 
+    }
+</script> 
 </head>
  <body>
     <img src="image.png" alt="delta" style="float:left;width:42px;height:42px;">
  <ul>
-   <li><a href="add.html">ITEM table</a></li>
+   <li><a href="index1.html">ITEM table</a></li>
    <li><a href="contact.html">contact</a></li>
+
    
 </ul>
-
+<div class="title">
+    <h1>My DIET Pal</h1>
+  </div>
    <div class="food">
     <div class="form">
-    <form class="details">
+    <div class="details">
      NAME:<input type="text" placeholder="Name">
      <br></br>
      AGE:<input type="text" placeholder="AGE">
@@ -25,12 +41,22 @@
      <input type="radio" name="GENDER"> Female
      </td>
      <br></br>
-     HEIGHT:<input type="text" placeholder="Height">
+     HEIGHT(m):<input type="text" placeholder="Height" id="hei">
      <br></br>
-     WEIGHT:<input type="text" placeholder="Weight">
+     WEIGHT:<input type="text" placeholder="Weight(Kg)" id="wei">
      <br></br>
+    
+
      <p class="message"> <a href="index1.html">Add item</a></p>
-   </form>
+     <br></br>
+
+     <button  onclick="displayBMI();">BMI </button>
+   <h1 id="bmi"></h1>
+  
+
+   </div>
+
+  
    
    
 
