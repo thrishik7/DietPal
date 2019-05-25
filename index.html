@@ -2,6 +2,7 @@
 <head>
 <meta charset="utf-8" content="width=device-width, initial-scale=1" name="viewport"/>
 <title>food meter </title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="index.css">
 <script>
   function displayBMI()
@@ -19,16 +20,21 @@
 </script> 
 </head>
  <body>
-    <img src="image.png" alt="delta" style="float:left;width:42px;height:42px;">
+    <img src="image.png" alt="delta" style="float:left;width:42px;height:42px;"><div class="form-row">
  <ul>
    <li><a href="index1.html">ITEM table</a></li>
    <li><a href="contact.html">contact</a></li>
 
    
 </ul>
+</div>
+<div class="form-row">
+    <div class="col-md-4 mb-5">
 <div class="title">
     <h1>My DIET Pal</h1>
   </div>
+</div>
+<div class="col-md-4 mb-5">
    <div class="food">
     <div class="form">
     <div class="details">
@@ -50,14 +56,14 @@
      <p class="message"> <a href="index1.html">Add item</a></p>
      <br></br>
 
-     <button  onclick="displayBMI();">BMI </button>
+     <button  class="btn btn-primary" onclick="displayBMI();">BMI </button>
    <h1 id="bmi"></h1>
   
 
    </div>
 
-  
-   
+  </div>
+   </div>
    
 
 </div>
