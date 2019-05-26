@@ -108,6 +108,7 @@
   var fooObj={a1:f1,a2:f2,a3:f3,a4:f4,a5:f5,cal1:cal};
   foodsArray.push(fooObj);
    localStorage.foodsRecord=JSON.stringify(foodsArray);
+  init();
     var table = document.getElementById("myTable table-hover");
   var row = table.insertRow(1);
   var cell1 = row.insertCell(0);
@@ -131,7 +132,7 @@ for(var i=1; i<table.rows.length; i++)
 }
 if(watersum<2000)
 {
-  alert("Water intaken low, water consumed:"+watersum);
+  alert("Water intaken low . water intake should be above 2000ml, water consumed(ml):"+watersum);
 }
 
 
@@ -143,11 +144,11 @@ for(var i=1; i<table.rows.length; i++)
 }
 if(calsum<2000)
 {
-  alert("calories gained is low, calories consumed(cal):"+calsum);
+  alert("calories gained is low. should be between 2000-3000, calories consumed(cal):"+calsum);
 }
 if(calsum>3000)
 {
-  alert("calories gained is high, calories consumed(cal):"+calsum);
+  alert("calories gained is high. should be between 2000-3000, calories consumed(cal):"+calsum);
 }
 if(calsum<3000 && calsum>2000)
 {
